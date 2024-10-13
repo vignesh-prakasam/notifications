@@ -1,9 +1,9 @@
 
 
 
-export default function Message({avatar, name, entity, event, message, picture, timeAgo, status}) {
+export default function Message({index, avatar, name, entity, event, message, picture, timeAgo, status, setRead}) {
     return (
-        <div className="grid sm:grid-cols-9 grid-cols-5 gap-4 bg-neutral-light-grayish-blue-2 rounded-lg my-2">
+        <div className={`grid sm:grid-cols-9 grid-cols-5 gap-4 ${ status ? '' : 'bg-neutral-light-grayish-blue-2'} rounded-lg my-2`} onClick={()=>setRead(index)}>
             <div className="sm:col-span-1 col-span-1">
                 <img src={avatar} alt="avatar" className="rounded-full size-12 m-4" />
             </div>
@@ -14,7 +14,7 @@ export default function Message({avatar, name, entity, event, message, picture, 
                                     <strong className="text-sm font-bold">{name}</strong> 
                                     <span className="text-sm text-neutral-dark-grayish-blue"> {event} </span>
                                     <a href="#" className="text-primary-blue font-bold text-sm">{entity}</a>
-                                    <span className="inline-block w-2 h-2 bg-red-500 rounded-full ml-1"></span>
+                                    { !status && <span className="inline-block w-2 h-2 bg-red-500 rounded-full ml-1"></span>}
                                     <p className="text-neutral-grayish-blue text-sm text-left ">{timeAgo}</p>
                                 </div>
                                 {
@@ -23,10 +23,12 @@ export default function Message({avatar, name, entity, event, message, picture, 
                     </div>
                     
                 </div>
-                
-                <div className="rounded-lg border-10 border-black">
+                {
+                    message && 
+                <div className="rounded-sm border-[1px] border-neutral-light-grayish-blue-2 my-2">
                     <p className="p-3 text-neutral-dark-grayish-blue text-sm  text-left">{message}</p>
                 </div>
+                }
                
             </div>
         </div>
