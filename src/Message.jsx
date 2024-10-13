@@ -13,7 +13,7 @@ export default function Message({index, avatar, name, entity, event, message, pi
                                 <div>
                                     <strong className="text-sm font-bold">{name}</strong> 
                                     <span className="text-sm text-neutral-dark-grayish-blue"> {event} </span>
-                                    <a href="#" className="text-primary-blue font-bold text-sm">{entity}</a>
+                                    <a href="#" className="text-neutral-dark-grayish-blue hover:text-primary-blue font-semibold text-sm">{entity}</a>
                                     { !status && <span className="inline-block w-2 h-2 bg-red-500 rounded-full ml-1"></span>}
                                     <p className="text-neutral-grayish-blue text-sm text-left ">{timeAgo}</p>
                                 </div>
@@ -25,8 +25,8 @@ export default function Message({index, avatar, name, entity, event, message, pi
                 </div>
                 {
                     message && 
-                <div className="rounded-sm border-[1px] border-neutral-light-grayish-blue-2 my-2">
-                    <p className="p-3 text-neutral-dark-grayish-blue text-sm  text-left">{message}</p>
+                <div className="rounded-sm border-[1px] border-neutral-light-grayish-blue-2 my-2 group">
+                    <p className="p-3 text-neutral-dark-grayish-blue text-sm  text-left group-hover:bg-neutral-light-grayish-blue-2">{message}</p>
                 </div>
                 }
                

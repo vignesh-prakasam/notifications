@@ -12,7 +12,7 @@ import chessImage from './assets/images/image-chess.webp'
 
 function App() {
   const [messages, setMessages] = useState([
-    {avatar: avatarMarkWebber,  name: "Mark Webber", entity:"My first tournament today", event:"reacted to your post", timeAgo:"1m ago"},
+    {avatar: avatarMarkWebber,  name: "Mark Webber", entity:"My first tournament today!", event:"reacted to your post", timeAgo:"1m ago"},
     {avatar: avatarAngelaGray , name:"Angela Gray" ,entity:"" ,event:"followed you" , timeAgo:"5m ago"},
     {avatar: avatarJacobThompson , name:"Jacob Thompson" ,entity:"Chess Club" ,event:"has joined your group" ,timeAgo:"1 day ago"},
     {avatar: avatarRizkyHasanuddin , name:"Rizky  Hasanuddin" ,entity:"" ,event:"sent you a private message", message:"Hello, thanks for setting up the Chess Club. I've been a member for a few weeks now and I'm already having lots of fun and improving my game." ,timeAgo:"5 days ago", status: "read"},
@@ -41,18 +41,17 @@ function App() {
   return (
     <main>
       <div className="flex flex-col min-h-screen justify-center items-center">
-        <div className="flex flex-col bg-white w-2/3 h-full rounded-lg">
+        <div className="flex flex-col bg-white sm:w-2/3 w-full h-full rounded-lg">
           <div className="flex justify-between mt-2 mx-3">
-            <div>
+            <div className="flex items-center">
               <h1 className="text-left font-bold text-xl">
-                Notifications{" "}
-                <span className="size-10 bg-primary-blue ml-2 py-1 px-2 rounded text-white text-sm font-semibold">
-                  {" "}
-                  {countOfMessagesWithUndefinedStatus}{" "}
-                </span>
+                Notifications
               </h1>
+              <span className="h-5 w-7 bg-primary-blue ml-2 text-center rounded text-white text-sm font-semibold">
+                {countOfMessagesWithUndefinedStatus}
+              </span>
             </div>
-            <a className="text-left text-neutral-grayish-blue text-sm" href="#" onClick={markAllasRead}i>
+            <a className="text-left text-neutral-grayish-blue text-sm hover:text-primary-blue" href="#" onClick={markAllasRead}>
               Mark all read
             </a>
           </div>
