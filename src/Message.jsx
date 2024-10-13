@@ -3,7 +3,7 @@
 
 export default function Message({index, avatar, name, entity, event, message, picture, timeAgo, status, setRead}) {
     return (
-        <div className={`grid sm:grid-cols-9 grid-cols-5 gap-4 ${ status ? '' : 'bg-neutral-light-grayish-blue-2'} rounded-lg my-2 cursor-pointer`} onClick={()=>setRead(index)} >
+        <div className={`grid sm:grid-cols-9 grid-cols-5 gap-4 ${ status ? '' : 'bg-neutral-very-light-grayish-blue'} rounded-lg my-2 cursor-pointer`} onClick={()=>setRead(index)} >
             <div className="sm:col-span-1 col-span-1">
             <img src={avatar} alt="avatar" className="rounded-full size-12 m-4" />
             </div>
@@ -13,7 +13,7 @@ export default function Message({index, avatar, name, entity, event, message, pi
                     <div>
                         <a className="text-sm font-bold hover:text-primary-blue" href="#">{name}</a> 
                         <span className="text-sm text-neutral-dark-grayish-blue"> {event} </span>
-                        <a href="#" className="text-neutral-dark-grayish-blue hover:text-primary-blue font-semibold text-sm">{entity}</a>
+                        {entity && <a href="#" className="text-neutral-dark-grayish-blue hover:text-primary-blue font-semibold text-sm">{entity}</a>}
                         { !status && <span className="inline-block w-2 h-2 bg-red-500 rounded-full ml-1"></span>}
                         <p className="text-neutral-grayish-blue text-sm text-left ">{timeAgo}</p>
                     </div>
